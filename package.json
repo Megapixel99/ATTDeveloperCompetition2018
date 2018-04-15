@@ -2,7 +2,7 @@
   "name": "attdevelopercompetition",
   "version": "1.0.0",
   "description": "ATT Dev. Comp. submission",
-  "main": "server.js",
+  "main": "Routes.js",
   "scripts": {
     "start": "node server.js"
   },
