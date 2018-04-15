@@ -83,4 +83,7 @@ router.get('/result', function(req, res){
 function sortNumber(a,b) {
     return b - a;
 }
+router.get('/test', function(req, res){
+  res.json("hi");
+});
 module.exports = router;
