@@ -84,6 +84,6 @@ function sortNumber(a,b) {
     return b - a;
 }
 router.get('/test', function(req, res){
-  console.log("here");
+  res.send("./temp.html")
 });
 module.exports = router;
