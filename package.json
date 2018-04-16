@@ -4,7 +4,7 @@
   "description": "ATT Dev. Comp. submission",
   "main": "Routes.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node Routes.js"
   },
   "engines": {
     "node": "~4.3.0",
