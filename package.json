@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "ATT Dev. Comp. submission",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node Server.js"
   },
   "engines": {
     "node": "~4.3.0",
