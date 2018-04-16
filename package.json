@@ -2,9 +2,8 @@
   "name": "attdevelopercompetition",
   "version": "1.0.0",
   "description": "ATT Dev. Comp. submission",
-  "main": "Routes.js",
   "scripts": {
-    "start": "node Routes.js"
+    "start": "node ./bin/www"
   },
   "engines": {
     "node": "~4.3.0",
