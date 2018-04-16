@@ -6,5 +6,4 @@ const app = express();
 const http = require('http');
 var Router = require("./Router.js"); //Getting Router.js
 app.use(Router); //Using Router.js
-var httpServer = http.createServer(app);
-httpServer.listen(3000);
+app.listen(3000);
