@@ -4,8 +4,19 @@
 const express = require("./node_modules/express");
 const router = express.Router();
 const mongoose = require('./node_modules/mongoose');
-// 192.168.1.2 is my IP, however the database thinks 68.6.183.91 is my IP.
-//If trying to get my results go to http://192.168.1.2:3000/result?ipAddress=68.6.183.91
+mongoose.connect('mongodb://localhost:27017/SearchData'); // Connecting to the database
+  const db = mongoose.connection;
+
+  db.on("error", console.error.bind(console, "connection error")); // If connection failed
+  db.once("open", function(callback) {
+      console.log("Connection succeeded."); // If connection succeeded
+  });
+var Termschema = mongoose.Schema({ // Creating a model for the data to be inputed into the database
+  Term: String,
+  ip: String,
+  use: Number
+});
+var Term = mongoose.model('Terms', Termschema); // Creating\accsesing the database
 
 router.post('/', function(req, res){
    var searchedterms = req.query.searchedterms.split(","); // Switching passed in search terms to an Array
@@ -70,7 +81,4 @@ router.get('/result', function(req, res){
 function sortNumber(a,b) {
     return b - a;
 }
-router.get('/test', function(req, res){
-  res.sendFile("temp.html", {root: __dirname })
-});
 module.exports = router;
