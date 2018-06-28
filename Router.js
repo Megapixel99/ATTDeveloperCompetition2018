@@ -54,7 +54,16 @@ router.post('/savedata', function(req, res){
    });
  });
  router.get('/', function(req, res){
-   res.json('Go to https://attappdevcomp2018.herokuapp.com/results to see what you search for most often');
+ var userIP;
+ $.ajax({
+     url: "https://api.ipify.org/?format=json", // Getting user Ip Address
+     async: false,
+     dataType: 'json',
+     success: function(data) {
+       userIP = data.ip; // Saving user Ip Address
+     }
+ });
+   res.json('Go to https://attappdevcomp2018.herokuapp.com/result?ipAddress=' + userIP + ' to see what you search for most often');
  });
 router.get('/result', function(req, res){
   if (req.query.ipAddress == undefined)
