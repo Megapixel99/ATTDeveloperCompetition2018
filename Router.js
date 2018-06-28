@@ -18,7 +18,7 @@ var Termschema = mongoose.Schema({ // Creating a model for the data to be inpute
 });
 var Term = mongoose.model('Terms', Termschema); // Creating\accsesing the database
 
-router.post('/', function(req, res){
+router.post('/savedata', function(req, res){
    var searchedterms = req.query.searchedterms.split(","); // Switching passed in search terms to an Array
    var userIP = req.query.userIP; // Saving the Client's IP Adress
    searchedterms.forEach(function (term) { // Looping through all the terms in the Array searchedterms
@@ -52,6 +52,9 @@ router.post('/', function(req, res){
         }
      });
    });
+ });
+ router.get('/', function(req, res){
+   res.json('here');
  });
 router.get('/result', function(req, res){
   if (req.query.ipAddress == undefined)
