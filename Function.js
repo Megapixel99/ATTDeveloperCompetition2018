@@ -38,7 +38,7 @@ for (var j = 0; j < UserSearchTerm.length; j++) {
   }
 }
 $.ajax({
-	url: "http://localhost:3000/savedata?searchedterms=" + searchedterms + "&userIP=" + userIP + "", //sending searched terms and user IP adress to Router.js
+	url: "https://attappdevcomp2018.herokuapp.com/savedata?searchedterms=" + searchedterms + "&userIP=" + userIP + "", //sending searched terms and user IP adress to Router.js
   async: false,
   type: "POST",
   dataType:"json"
