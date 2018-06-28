@@ -7,9 +7,9 @@ const mongoose = require('./node_modules/mongoose');
 mongoose.connect('mongodb://Admin:admin1@ds018568.mlab.com:18568/attdevcomp2018'); // Connecting to the database
   const db = mongoose.connection;
 
-  db.on("error", console.error.bind(console, "connection error")); // If connection failed
+  db.on("error", console.error.bind(console, "connection to MLab failed")); // If connection failed
   db.once("open", function(callback) {
-      console.log("Connection succeeded."); // If connection succeeded
+      console.log("Connection to MLab succeeded."); // If connection succeeded
   });
 var Termschema = mongoose.Schema({ // Creating a model for the data to be inputed into the database
   Term: String,
@@ -54,16 +54,8 @@ router.post('/savedata', function(req, res){
    });
  });
  router.get('/', function(req, res){
- var userIP;
- $.ajax({
-     url: "https://api.ipify.org/?format=json", // Getting user Ip Address
-     async: false,
-     dataType: 'json',
-     success: function(data) {
-       userIP = data.ip; // Saving user Ip Address
-     }
  });
-   res.json('Go to https://attappdevcomp2018.herokuapp.com/result?ipAddress=' + userIP + ' to see what you search for most often');
+   res.json('Go to https://attappdevcomp2018.herokuapp.com/result?ipAddress=<IP Address> to see what you search for most often');
  });
 router.get('/result', function(req, res){
   if (req.query.ipAddress == undefined)
