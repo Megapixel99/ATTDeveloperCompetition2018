@@ -1,5 +1,6 @@
 //This script is intended for use with Google Search Engine through the Tampermonkey Browser Addon
-//Written for the ATT App Developer Competition
+//To install and use this script download Tampermonkey, create a new script, and copy/paste this code inot the new script
+//Written for the ATT App Developer Competition 2018
 //Written by Seth C. Wheeler
 
 // ==UserScript==
@@ -14,7 +15,6 @@ var $ = window.jQuery;
 var UserSearchTerm;
 var commonWords = ["for", "the", "a", "of", "this", "these", "those", "get", "how"];
 var searchedterms = [];
-var runTime = 0;
 var userIP;
 
 $.ajax({
