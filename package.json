@@ -14,5 +14,15 @@
   "dependencies": {
     "express": "~4.16.3",
     "mongoose": "~5.0.14"
-  }
+  },
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Megapixel99/ATTDeveloperCompetition2018.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Megapixel99/ATTDeveloperCompetition2018/issues"
+  },
+  "homepage": "https://github.com/Megapixel99/ATTDeveloperCompetition2018#readme"
 }
