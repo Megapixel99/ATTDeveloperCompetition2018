@@ -1,5 +1,5 @@
 //This script is intended for use with Google Search Engine through the Tampermonkey Browser Addon
-//To install and use this script download Tampermonkey, create a new script, and copy/paste this code inot the new script
+//To install and use this script download Tampermonkey, create a new script, and copy/paste this code into the new script
 //Written for the ATT App Developer Competition 2018
 //Written by Seth C. Wheeler
 
@@ -13,13 +13,14 @@
 // ==/UserScript==
 var $ = window.jQuery;
 var UserSearchTerm;
-var commonWords = ["for", "the", "a", "of", "this", "these", "those", "get", "how"];
+var commonWords = ["for", "the", "a", "of", "this", "these", "those", "get", "how", "to"];
 var searchedterms = [];
 var userIP;
 
 $.ajax({
     url: "https://api.ipify.org/?format=json", // Getting user Ip Address
     dataType: 'json',
+    async: false,
     success: function(data) {
         userIP = data.ip; // Saving user Ip Address
     }
