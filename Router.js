@@ -4,12 +4,12 @@
 const express = require("./node_modules/express");
 const router = express.Router();
 const mongoose = require('./node_modules/mongoose');
-mongoose.connect('mongodb://Admin:admin1@ds018568.mlab.com:18568/attdevcomp2018'); // Connecting to the database
+mongoose.connect('mongodb://localhost:27017/SearchData'); // Connecting to the database
   const db = mongoose.connection;
 
-  db.on("error", console.error.bind(console, "connection to MLab failed")); // If connection failed
+  db.on("error", console.error.bind(console, "connection error")); // If connection failed
   db.once("open", function(callback) {
-      console.log("Connection to MLab succeeded."); // If connection succeeded
+      console.log("Connection succeeded."); // If connection succeeded
   });
 var Termschema = mongoose.Schema({ // Creating a model for the data to be inputed into the database
   Term: String,
@@ -18,13 +18,13 @@ var Termschema = mongoose.Schema({ // Creating a model for the data to be inpute
 });
 var Term = mongoose.model('Terms', Termschema); // Creating\accsesing the database
 
-router.post('/savedata', function(req, res){
+router.post('/', function(req, res){
    var searchedterms = req.query.searchedterms.split(","); // Switching passed in search terms to an Array
    var userIP = req.query.userIP; // Saving the Client's IP Adress
    searchedterms.forEach(function (term) { // Looping through all the terms in the Array searchedterms
      Term.findOne({Term: term}, function(err, TermItem) { // Locating a term
        if (err) { // If error
-        console.error("MongoDB Error: " + err);
+        res.send("MongoDB Error: " + err);
         return false;
        }
        if (!TermItem) { // If term isn't found create term and add to the database
@@ -32,10 +32,10 @@ router.post('/savedata', function(req, res){
         var myData = new Term({ Term: term, ip: userIP, use : 1 });
         myData.save()
           .then(item => {
-            console.log("saved to database: " + term + ", for user " + userIP + "");
+            res.send("saved to database: " + term + ", for user " + userIP + "");
           })
           .catch(err => {
-            console.error("unable to save to database: " + term + ", for user " + userIP + "");
+            res.send("unable to save to database: " + term + ", for user " + userIP + "");
           });
         }
         else{ // If term is found increment 1 to the use of the Term in the database
@@ -43,18 +43,15 @@ router.post('/savedata', function(req, res){
           var update = {$inc : { use: 1 }};
           Term.findOneAndUpdate(conditions, update, function (err)
           {
-            console.log("updated: " + term + ", for user " + userIP + "");
+            res.send("updated: " + term + ", for user " + userIP + "");
               if (err) // If error
               {
-                console.error(err);
+                res.send(err);
               }
           });
         }
      });
    });
- });
- router.get('/', function(req, res){
-   res.json('Go to https://attappdevcomp2018.herokuapp.com/result?ipAddress=<IP Address> to see what you search for most often');
  });
 router.get('/result', function(req, res){
   if (req.query.ipAddress == undefined)
