@@ -16,7 +16,6 @@ var UserSearchTerm;
 var commonWords = ["for", "the", "a", "of", "this", "these", "those", "get", "how", "to"];
 var searchedterms = [];
 var userIP;
-var test;
 
 $.ajax({
     url: "https://api.ipify.org/?format=json", // Getting user Ip Address
