@@ -4,7 +4,7 @@
 const express = require("./node_modules/express");
 const router = express.Router();
 const mongoose = require('./node_modules/mongoose');
-mongoose.connect('mongodb://localhost:27017/SearchData'); // Connecting to the database
+mongoose.connect('mongodb://Admin:<Admin1@ds018568.mlab.com:18568/attdevcomp2018'); // Connecting to the database
   const db = mongoose.connection;
 
   db.on("error", console.error.bind(console, "connection error")); // If connection failed
