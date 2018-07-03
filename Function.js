@@ -13,7 +13,7 @@
 // ==/UserScript==
 
 var UserSearchTerm;
-var commonWords = ["for", "the", "a", "of", "this", "these", "those", "get", "how"];
+var commonWords = ["for", "the", "a", "of", "this", "these", "those", "get", "how", "to"];
 var searchedterms = [];
 var runTime = 0;
 var userIP;
