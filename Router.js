@@ -24,7 +24,7 @@ router.post('/', function(req, res){
    searchedterms.forEach(function (term) { // Looping through all the terms in the Array searchedterms
      Term.findOne({Term: term}, function(err, TermItem) { // Locating a term
        if (err) { // If error
-        console.error("MongoDB Error: " + err);
+        res.send("MongoDB Error: " + err);
         return false;
        }
        if (!TermItem) { // If term isn't found create term and add to the database
@@ -32,10 +32,10 @@ router.post('/', function(req, res){
         var myData = new Term({ Term: term, ip: userIP, use : 1 });
         myData.save()
           .then(item => {
-            console.log("saved to database: " + term + ", for user " + userIP + "");
+            res.send("saved to database: " + term + ", for user " + userIP + "");
           })
           .catch(err => {
-            console.error("unable to save to database: " + term + ", for user " + userIP + "");
+            res.send("unable to save to database: " + term + ", for user " + userIP + "");
           });
         }
         else{ // If term is found increment 1 to the use of the Term in the database
@@ -43,10 +43,10 @@ router.post('/', function(req, res){
           var update = {$inc : { use: 1 }};
           Term.findOneAndUpdate(conditions, update, function (err)
           {
-            console.log("updated: " + term + ", for user " + userIP + "");
+            res.send("updated: " + term + ", for user " + userIP + "");
               if (err) // If error
               {
-                console.error(err);
+                res.send(err);
               }
           });
         }
