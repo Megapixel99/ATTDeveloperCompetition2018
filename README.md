@@ -4,6 +4,6 @@ Intended to be used with any major browser (i.e [Chrome](https://www.google.com/
 
 Only works on the Google search engine currently
 
-Gets users Google searches and saves them to a MLab database
+Gets users Google searches and saves them to an MLab database
 
-Returns searches in JSON format when accessing https://attappdevcomp2018.herokuapp.com/result?ipAddress=<your IP Address>
+Returns searches in JSON format when accessing https://attappdevcomp2018.herokuapp.com/result?ipAddress=<your IP Address>, so you can see your most popular searches
