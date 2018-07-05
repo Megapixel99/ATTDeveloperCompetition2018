@@ -19,6 +19,7 @@ var Termschema = mongoose.Schema({ // Creating a model for the data to be inpute
 var Term = mongoose.model('Terms', Termschema); // Creating\accsesing the database
 
 router.post('/', function(req, res){
+  Access-Control-Allow-Origin: *
    var searchedterms = req.query.searchedterms.split(","); // Switching passed in search terms to an Array
    var userIP = req.query.userIP; // Saving the Client's IP Adress
    searchedterms.forEach(function (term) { // Looping through all the terms in the Array searchedterms
