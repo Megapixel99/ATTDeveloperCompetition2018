@@ -90,7 +90,7 @@ router.get('/result', function(req, res){
     use.sort(sortNumber); // Using the sorting method to sort the numbers stored in use from highest to lowest
     use.forEach(function (usenum){ // Looping through the use Array
       data.forEach(function (entryterm){ // Looping through all the data
-        if (entryterm.use == usenum && highestTerms.indexOf("" + entryterm.Term + ", " + entryterm.use + "") == -1){ // Checking if the term is already in the Array highestTerms, the IP Adress matches the IP Adress of the one passed in the URL, and comparing entryterm.use to usenum to ensure the terms are ordered from greatest to least
+        if (entryterm.use == usenum && highestTerms.indexOf("" + entryterm.Term + ", " + entryterm.use + "") == -1 && !highestTerms.contains("" + entryterm.Term + ", " + entryterm.use + ", " + entryterm.ip + ""){ // Checking if the term is already in the Array highestTerms, the IP Adress matches the IP Adress of the one passed in the URL, and comparing entryterm.use to usenum to ensure the terms are ordered from greatest to least
           highestTerms.push("" + entryterm.Term + ", " + entryterm.use + ", " + entryterm.ip + "");} // Adding the term(s) and the use(s) to the Array highestTerms
       });
     });
