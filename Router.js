@@ -7,9 +7,9 @@ const mongoose = require('./node_modules/mongoose');
 mongoose.connect('mongodb://Admin:Admin1@ds018568.mlab.com:18568/attdevcomp2018'); // Connecting to the database
   const db = mongoose.connection;
 
-  db.on("error", console.error.bind(console, "connection to Mlab failed")); // If connection failed
+  db.on("error", console.error.bind(console, "connection to mLab failed")); // If connection failed
   db.once("open", function(callback) {
-      console.log("Connection to Mlab succeeded."); // If connection succeeded
+      console.log("Connection to mLab succeeded."); // If connection succeeded
   });
 var Termschema = mongoose.Schema({ // Creating a model for the data to be inputed into the database
   Term: String,
