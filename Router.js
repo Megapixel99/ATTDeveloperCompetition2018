@@ -54,6 +54,9 @@ router.post('/', function(req, res){
      });
    });
  });
+router.get('/', function(req, res){
+    res.json("Please go to https://attappdevcomp2018.herokuapp.com/result to see the results"); // Sending the message in JSON format
+});
 router.get('/result', function(req, res){
   if (req.query.ipAddress == undefined)
   {
