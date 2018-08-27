@@ -53,10 +53,13 @@ router.post('/', function(req, res){
      });
    });
  });
+router.get('/', function(req, res){
+    res.json("Please go to https://attappdevcomp2018.herokuapp.com/result to see the results"); // Sending the message in JSON format
+});
 router.get('/result', function(req, res){
   if (req.query.ipAddress == undefined)
   {
-    res.json("No IP Address found in url parameters"); // Sending the message in JSON format
+    res.json("No IP Address found in url parameters, please add ?ipAddress=(the IP Address) after /result"); // Sending the message in JSON format
     return;
   } else {
     var ipAddress = req.query.ipAddress; // Obtaining IP Address
