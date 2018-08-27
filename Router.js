@@ -95,7 +95,6 @@ router.get('/result', function(req, res){
           highestTerms.push("" + entryterm.Term + ", " + entryterm.use + "");} // Adding the term(s) and the use(s) to the Array highestTerms
       });
     });
-    console.log("here");
     res.json(highestTerms); // Sending highestTerms in JSON format
   });
   }
