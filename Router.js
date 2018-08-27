@@ -60,14 +60,13 @@ router.get('/result', function(req, res){
   var highestTerms = [];
   var use = [];
   var highestUse = 0;
-  if (req.query.ipAddress != "all")
+  var ipAddress = req.query.ipAddress
+  if (ipAddress != "all")
   {
-  if (req.query.ipAddress == undefined)
+  if (ipAddress == undefined)
   {
     res.send("No IP Address found in url parameters, please add ?ipAddress=(the IP Address) after /result, you can get your IP Address here: https://api.ipify.org/"); // Sending the message in HTML format
     return;
-  } else {
-    var ipAddress = req.query.ipAddress; // Obtaining IP Address
   }
   Term.find({}, { _id : 0, __v : 0}, function (err, data) { // Finding all the Terms and storing them in data
     data.forEach(function (entry){ // Looping through all the data
@@ -92,7 +91,7 @@ router.get('/result', function(req, res){
     use.forEach(function (usenum){ // Looping through the use Array
       data.forEach(function (entryterm){ // Looping through all the data
         if (entryterm.use == usenum && highestTerms.indexOf("" + entryterm.Term + ", " + entryterm.use + "") == -1){ // Checking if the term is already in the Array highestTerms, the IP Adress matches the IP Adress of the one passed in the URL, and comparing entryterm.use to usenum to ensure the terms are ordered from greatest to least
-          highestTerms.push("" + entryterm.Term + ", " + entryterm.use + "");} // Adding the term(s) and the use(s) to the Array highestTerms
+          highestTerms.push("" + entryterm.Term + ", " + entryterm.use + ", " + ipAddress + "");} // Adding the term(s) and the use(s) to the Array highestTerms
       });
     });
     res.json(highestTerms); // Sending highestTerms in JSON format
