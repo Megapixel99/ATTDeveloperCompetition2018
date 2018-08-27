@@ -59,7 +59,7 @@ router.get('/', function(req, res){
 router.get('/result', function(req, res){
   if (req.query.ipAddress == undefined)
   {
-    res.json({"No IP Address found in url parameters, please add ?ipAddress=(the IP Address) after /result, you can get your IP Address here: https://api.ipify.org/"}); // Sending the message in JSON format
+    res.send("No IP Address found in url parameters, please add ?ipAddress=(the IP Address) after /result, you can get your IP Address here: https://api.ipify.org/"); // Sending the message in JSON format
     return;
   } else {
     var ipAddress = req.query.ipAddress; // Obtaining IP Address
