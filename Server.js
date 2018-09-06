@@ -5,6 +5,7 @@ const express = require('./node_modules/express'); //Getting Expresss
 const app = express();
 const http = require('http');
 var Router = require("./Router.js"); //Getting Router.js
+app.set('json spaces', 2);
 app.use(Router); //Using Router.js
 
 app.set("port", process.env.PORT || 3000);
