@@ -1,6 +1,6 @@
 # ATTDeveloperCompetition2018
 
-Intended to be used with any major browser (i.e [Chrome](https://www.google.com/chrome/?brand=CHBD&gclid=EAIaIQobChMIpJjgpfmD3AIVkNlkCh3s0gZsEAAYASAAEgIb4PD_BwE&gclsrc=aw.ds&dclid=COOrgqf5g9wCFUUDrQYdbOUEBQ), [Edge](https://www.microsoft.com/en-us/windows/microsoft-edge), [Firefox](https://www.mozilla.org/en-US/firefox/new/), [Safari](https://www.apple.com/safari/), etc...) and [Tampermonkey](https://tampermonkey.net/)
+Intended to be used with any major browser (i.e [Chrome](https://www.google.com/chrome/?brand=CHBD&gclid=EAIaIQobChMIpJjgpfmD3AIVkNlkCh3s0gZsEAAYASAAEgIb4PD_BwE&gclsrc=aw.ds&dclid=COOrgqf5g9wCFUUDrQYdbOUEBQ), [Edge](https://www.microsoft.com/en-us/windows/microsoft-edge), [Firefox](https://www.mozilla.org/en-US/firefox/new/), [Safari](https://www.apple.com/safari/), etc...) and GreaseMonkey
 
 Only works on the Google search engine currently
 
